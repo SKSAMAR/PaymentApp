@@ -1,7 +1,9 @@
 package com.samar.paymentapp.presentation.home
 
 import android.content.Context
+import android.content.Intent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -20,6 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.samar.paymentapp.R
 import com.samar.paymentapp.presentation.common.ScreenConfig
+import com.samar.paymentapp.presentation.dashboard.DashboardActivity
 import com.samar.paymentapp.presentation.home.component.HomeImage
 import com.samar.paymentapp.presentation.home.component.HomeText
 import com.samar.paymentapp.util.common.sdp
@@ -67,6 +70,9 @@ fun HomeScreen(context: Context = LocalContext.current){
                         modifier = Modifier
                             .fillMaxWidth(.93f)
                             .padding(vertical = 10.sdp)
+                            .clickable {
+                                context.startActivity(Intent(context, DashboardActivity::class.java))
+                            }
                             .align(Alignment.CenterHorizontally)
                             .clip(shape = RoundedCornerShape(10.sdp))
                             .background(color = MaterialTheme.colorScheme.surface)
@@ -121,6 +127,9 @@ fun HomeScreen(context: Context = LocalContext.current){
                         modifier = Modifier
                             .fillMaxWidth(.93f)
                             .padding(vertical = 10.sdp)
+                            .clickable {
+                                context.startActivity(Intent(context, DashboardActivity::class.java))
+                            }
                             .align(Alignment.CenterHorizontally)
                             .clip(shape = RoundedCornerShape(10.sdp))
                             .background(color = MaterialTheme.colorScheme.surface)
