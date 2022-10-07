@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PaymentApp</string>
+    <string name="utility_tracker">Utility Tracker</string>
+    <string name="save_with_us">\u2022 Save with us</string>
+    <string name="dont_be_afraid">Don\'t be afraid to look at your bills!</string>
+    <string name="help_with_bills">We can help you deal with your bills and you don\'t miss any payment! Easy and quick you can track readings of all your utility meters in one place.</string>
+    <string name="lets_start">Let\'s start</string>
+</resources>
