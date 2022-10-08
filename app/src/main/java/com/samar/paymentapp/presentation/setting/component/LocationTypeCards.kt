@@ -7,10 +7,7 @@ import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.CheckBoxOutlineBlank
-import androidx.compose.material.icons.filled.HomeWork
-import androidx.compose.material.icons.filled.TabUnselected
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -72,7 +69,7 @@ fun LocationTypeCards(
                 )
 
                 Icon(
-                    imageVector = if(isSelectedItem(title)) Icons.Default.Check else Icons.Default.CheckBoxOutlineBlank,
+                    imageVector = if(isSelectedItem(title)) Icons.Default.CheckBox else Icons.Default.CheckBoxOutlineBlank,
                     contentDescription = "selected"
                 )
 
