@@ -5,4 +5,8 @@
     <string name="dont_be_afraid">Don\'t be afraid to look at your bills!</string>
     <string name="help_with_bills">We can help you deal with your bills and you don\'t miss any payment! Easy and quick you can track readings of all your utility meters in one place.</string>
     <string name="lets_start">Let\'s start</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="pay_now">Pay now</string>
+    <string name="messages">Messages</string>
+    <string name="see_all">See all</string>
 </resources>
