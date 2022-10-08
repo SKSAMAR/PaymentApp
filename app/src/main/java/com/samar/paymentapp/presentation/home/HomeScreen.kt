@@ -71,7 +71,12 @@ fun HomeScreen(context: Context = LocalContext.current){
                             .fillMaxWidth(.93f)
                             .padding(vertical = 10.sdp)
                             .clickable {
-                                context.startActivity(Intent(context, DashboardActivity::class.java))
+                                context.startActivity(
+                                    Intent(
+                                        context,
+                                        DashboardActivity::class.java
+                                    )
+                                )
                             }
                             .align(Alignment.CenterHorizontally)
                             .clip(shape = RoundedCornerShape(10.sdp))
@@ -96,7 +101,8 @@ fun HomeScreen(context: Context = LocalContext.current){
                     .padding(15.sdp)
             ) {
                 Row(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Box(
@@ -116,32 +122,41 @@ fun HomeScreen(context: Context = LocalContext.current){
                     }
                 }
                 Column {
-                    HomeImage()
-                    HomeText(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(15.sdp)
-                            .weight(1f)
-                    )
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth(.93f)
-                            .padding(vertical = 10.sdp)
-                            .clickable {
-                                context.startActivity(Intent(context, DashboardActivity::class.java))
-                            }
-                            .align(Alignment.CenterHorizontally)
-                            .clip(shape = RoundedCornerShape(10.sdp))
-                            .background(color = MaterialTheme.colorScheme.surface)
+                    HomeImage(modifier = Modifier.weight(1f))
+                    Column(
+                        modifier = Modifier.weight(2f)
                     ) {
-                        Text(
+                        HomeText(
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(12.sdp),
-                            text = stringResource(id = R.string.lets_start),
-                            color = MaterialTheme.colorScheme.primary,
-                            textAlign = TextAlign.Center
+                                .fillMaxSize()
+                                .padding(15.sdp)
+                                .weight(1f)
                         )
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth(.93f)
+                                .padding(vertical = 10.sdp)
+                                .clickable {
+                                    context.startActivity(
+                                        Intent(
+                                            context,
+                                            DashboardActivity::class.java
+                                        )
+                                    )
+                                }
+                                .align(Alignment.CenterHorizontally)
+                                .clip(shape = RoundedCornerShape(10.sdp))
+                                .background(color = MaterialTheme.colorScheme.surface)
+                        ) {
+                            Text(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(12.sdp),
+                                text = stringResource(id = R.string.lets_start),
+                                color = MaterialTheme.colorScheme.primary,
+                                textAlign = TextAlign.Center
+                            )
+                        }
                     }
                 }
             }

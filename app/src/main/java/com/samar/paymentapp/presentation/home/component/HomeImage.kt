@@ -13,9 +13,11 @@ import com.samar.paymentapp.R
 import com.samar.paymentapp.util.common.sdp
 
 @Composable
-fun HomeImage(){
+fun HomeImage(
+    modifier: Modifier = Modifier
+){
     Image(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .aspectRatio(1.2f)
             .clip(RectangleShape)

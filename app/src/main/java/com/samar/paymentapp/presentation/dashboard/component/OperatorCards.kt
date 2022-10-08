@@ -16,6 +16,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import com.samar.paymentapp.domain.model.OperatorCardModel
 import com.samar.paymentapp.presentation.common.CircleButton
 import com.samar.paymentapp.util.common.sdp
+import com.samar.paymentapp.util.common.textSdp
 
 @Composable
 fun OperatorCards(
@@ -48,7 +49,8 @@ fun OperatorCards(
                     text = operatorCardModel.amount,
                     style = MaterialTheme.typography.headlineLarge,
                     fontWeight = FontWeight.SemiBold,
-                    overflow = TextOverflow.Ellipsis
+                    overflow = TextOverflow.Ellipsis,
+                    fontSize = 22.textSdp
                 )
                 Text(
                     text = operatorCardModel.type,
