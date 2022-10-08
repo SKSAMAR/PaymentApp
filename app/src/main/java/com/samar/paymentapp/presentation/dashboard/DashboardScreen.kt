@@ -1,10 +1,12 @@
 package com.samar.paymentapp.presentation.dashboard
 
 import android.annotation.SuppressLint
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.grid.*
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
@@ -14,7 +16,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -32,9 +33,6 @@ import com.samar.paymentapp.util.common.sdp
 @Preview(showBackground = true)
 @Composable
 fun DashboardScreen() {
-    var spanCount by remember {
-        mutableStateOf(2)
-    }
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
@@ -51,65 +49,80 @@ fun DashboardScreen() {
             verticalAlignment = Alignment.CenterVertically,
             verticalArrangement = Arrangement.SpaceBetween,
             rowContent = {
-                spanCount = 4
-                Box(
+                Column(
                     modifier = Modifier
                         .padding(8.sdp)
                 ) {
-                    LazyVerticalGrid(
-                        columns = GridCells.Fixed(spanCount),
-                    ) {
-                        item(span = { GridItemSpan(spanCount) }) { DashboardTop() }
-                        item(span = { GridItemSpan(spanCount) }) { BalanceCard(modifier = Modifier.padding(vertical = 15.sdp)) }
-                        items(operatorList) { operator ->
-                            OperatorCards(operatorCardModel = operator)
-                        }
-
-                        item(span = { GridItemSpan(spanCount) }) {
-                            Row(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(top = 15.sdp, bottom = 8.sdp),
-                                horizontalArrangement = Arrangement.SpaceBetween
-                            ) {
-                                Text(
-                                    text = stringResource(id = R.string.messages),
-                                    style = MaterialTheme.typography.bodyLarge,
-                                    fontWeight = FontWeight.SemiBold
-                                )
-                                Text(
-                                    text = stringResource(id = R.string.see_all),
-                                    style = MaterialTheme.typography.bodyLarge,
-                                    fontWeight = FontWeight.SemiBold
-                                )
+                    DashboardTop()
+                    Row {
+                        LazyColumn(
+                            modifier = Modifier
+                                .weight(1f)
+                                .padding(end = 5.sdp)
+                        ) {
+                            item {
+                                BalanceCard(modifier = Modifier.padding(vertical = 7.sdp))
                             }
-                        }
-                        item(span = { GridItemSpan(spanCount) }) {
-                            Column {
+                            item {
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(top = 5.sdp, bottom = 4.sdp),
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
+                                    Text(
+                                        text = stringResource(id = R.string.messages),
+                                        style = MaterialTheme.typography.bodyLarge,
+                                        fontWeight = FontWeight.SemiBold
+                                    )
+                                    Text(
+                                        text = stringResource(id = R.string.see_all),
+                                        style = MaterialTheme.typography.bodyLarge,
+                                        fontWeight = FontWeight.SemiBold
+                                    )
+                                }
+                            }
+
+                            item {
                                 for (i in 1..3) {
                                     MessageCard()
                                 }
+                            }
+                        }
+                        LazyVerticalGrid(
+                            columns = GridCells.Fixed(2),
+                            modifier = Modifier
+                                .weight(1f)
+                                .padding(start = 5.sdp)
+                        ) {
+                            items(operatorList) { operator ->
+                                OperatorCards(operatorCardModel = operator)
                             }
                         }
                     }
                 }
             },
             columnContent = {
-                spanCount = 2
                 Box(
                     modifier = Modifier
                         .padding(8.sdp)
                 ) {
                     LazyVerticalGrid(
-                        columns = GridCells.Fixed(spanCount),
+                        columns = GridCells.Fixed(2),
                     ) {
-                        item(span = { GridItemSpan(spanCount) }) { DashboardTop() }
-                        item(span = { GridItemSpan(spanCount) }) { BalanceCard(modifier = Modifier.padding(vertical = 15.sdp)) }
+                        item(span = { GridItemSpan(2) }) { DashboardTop() }
+                        item(span = { GridItemSpan(2) }) {
+                            BalanceCard(
+                                modifier = Modifier.padding(
+                                    vertical = 15.sdp
+                                )
+                            )
+                        }
                         items(operatorList) { operator ->
                             OperatorCards(operatorCardModel = operator)
                         }
 
-                        item(span = { GridItemSpan(spanCount) }) {
+                        item(span = { GridItemSpan(2) }) {
                             Row(
                                 modifier = Modifier
                                     .fillMaxWidth()
@@ -128,7 +141,7 @@ fun DashboardScreen() {
                                 )
                             }
                         }
-                        item(span = { GridItemSpan(spanCount) }) {
+                        item(span = { GridItemSpan(2) }) {
                             Column {
                                 for (i in 1..3) {
                                     MessageCard()
