@@ -9,4 +9,9 @@
     <string name="pay_now">Pay now</string>
     <string name="messages">Messages</string>
     <string name="see_all">See all</string>
+    <string name="report_issue">Report an issue</string>
+    <string name="sorry_to_hear">Sorry to hear that you have a problem.\nOur technician is here to help you.</string>
+    <string name="property">Property</string>
+    <string name="type_of_issue">Type of issue</string>
+    <string name="next">Next</string>
 </resources>

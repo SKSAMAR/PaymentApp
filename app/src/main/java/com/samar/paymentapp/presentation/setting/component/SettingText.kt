@@ -1,4 +1,4 @@
-package com.samar.paymentapp.presentation.home.component
+package com.samar.paymentapp.presentation.setting.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,22 +14,17 @@ import com.samar.paymentapp.R
 import com.samar.paymentapp.util.common.textSdp
 
 @Composable
-fun HomeText(
+fun SettingText(
     modifier: Modifier = Modifier
 ){
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.SpaceEvenly
     ){
-        Text(
-            text = stringResource(id = R.string.save_with_us),
-            style = MaterialTheme.typography.bodyMedium,
-            fontSize = 12.textSdp
-        )
 
         Text(
             modifier = Modifier.fillMaxWidth(),
-            text = stringResource(id = R.string.dont_be_afraid),
+            text = stringResource(id = R.string.report_issue),
             style = MaterialTheme.typography.displayMedium,
             fontWeight = FontWeight.SemiBold,
             textAlign = TextAlign.Start,
@@ -37,7 +32,7 @@ fun HomeText(
         )
 
         Text(
-            text = stringResource(id = R.string.help_with_bills),
+            text = stringResource(id = R.string.sorry_to_hear),
             style = MaterialTheme.typography.bodyLarge,
             fontSize = 14.textSdp
         )

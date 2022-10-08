@@ -32,6 +32,11 @@
             android:exported="true"
             android:theme="@style/Theme.PaymentApp"
             android:launchMode="singleTop"/>
+        <activity
+            android:name=".presentation.setting.SettingActivity"
+            android:exported="true"
+            android:theme="@style/Theme.PaymentApp"
+            android:launchMode="singleTop"/>
 
     </application>
 

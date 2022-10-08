@@ -1,6 +1,8 @@
 package com.samar.paymentapp.presentation.dashboard
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -16,6 +18,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -26,17 +29,22 @@ import com.samar.paymentapp.presentation.dashboard.component.BalanceCard
 import com.samar.paymentapp.presentation.dashboard.component.DashboardTop
 import com.samar.paymentapp.presentation.dashboard.component.MessageCard
 import com.samar.paymentapp.presentation.dashboard.component.OperatorCards
+import com.samar.paymentapp.presentation.setting.SettingActivity
 import com.samar.paymentapp.util.common.sdp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Preview(showBackground = true)
 @Composable
-fun DashboardScreen() {
+fun DashboardScreen(
+    context: Context = LocalContext.current
+) {
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
-                onClick = {},
+                onClick = {
+                     context.startActivity(Intent(context, SettingActivity::class.java))
+                },
                 shape = CircleShape
             ) {
                 Icon(imageVector = Icons.Default.Settings, contentDescription = "setting")
